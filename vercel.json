@@ -1,18 +1,22 @@
 {
     "version": 2,
-    "main": "index.js",
-    "builds":[{
-        "src":"./dist/src/index.js",
-        "use": "@vercel/node"
-    }
-    ],
-    "routes":[
-        {   
-            "src": "/(.*)",
-            "dest": "./dist/src/index.js"
-        }
-    ],
-    "scripts": {
-        "start": "npm start"
-    }
-}
+    "routes": [
+      {
+        "src": "/_next(.*)",
+        "dest": "/_next$1"
+      },
+      {
+        "src": "/api/(.*)",
+        "dest": "/dist/src/api/$1"
+      },
+      {
+        "src": "/uploads/(.*)",
+        "dest": "/dist/public/uploads/$1"
+      },
+      {
+        "src": "/(.*)",
+        "dest": "/dist/src/index.js"
+      }
+    ]
+  }
+  
